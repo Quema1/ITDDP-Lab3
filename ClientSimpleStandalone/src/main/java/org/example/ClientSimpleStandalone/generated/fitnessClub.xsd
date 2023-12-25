@@ -1,0 +1,115 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://it.nure.ua/sport"
+           xmlns:fc="https://it.nure.ua/sport"
+           elementFormDefault="qualified">
+
+    <!-- Define custom simple types for constraints -->
+    <xs:simpleType name="NonEmptyString">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:pattern value="[a-zA-Z0-9 /.:-]+"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="PositiveDecimal">
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="0"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="PositiveInteger">
+        <xs:restriction base="xs:int">
+            <xs:minInclusive value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Define UUID pattern -->
+    <xs:simpleType name="UUID">
+        <xs:restriction base="xs:string">
+            <xs:length value="36"/>
+            <xs:pattern value="^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Main fitnessClub element -->
+    <xs:element name="fitnessClub">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="clients" type="fc:Clients"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Clients complex type using xs:sequence -->
+    <xs:complexType name="Clients">
+        <xs:sequence>
+            <xs:element name="client" type="fc:Client" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Client complex type using xs:sequence -->
+    <xs:complexType name="Client">
+        <xs:sequence>
+            <xs:element name="name" type="fc:NonEmptyString"/>
+            <xs:element name="surname" type="fc:NonEmptyString"/>
+            <xs:element name="photo" type="fc:NonEmptyString"/>
+            <xs:element name="dateOfBirth" type="fc:Date"/>
+            <xs:element name="homeAddress" type="fc:NonEmptyString"/>
+            <xs:element name="currentSubscription" type="fc:Subscription"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="fc:PositiveInteger"/>
+    </xs:complexType>
+
+    <!-- Subscription complex type using xs:choice -->
+    <xs:complexType name="Subscription">
+        <xs:choice>
+            <xs:sequence>
+                <xs:element name="price" type="fc:PositiveDecimal"/>
+                <xs:element name="startDate" type="fc:Date"/>
+                <xs:element name="endDate" type="fc:Date"/>
+                <xs:element name="coach" type="fc:Coach"/>
+            </xs:sequence>
+        </xs:choice>
+        <xs:attribute name="id" type="fc:PositiveInteger"/>
+    </xs:complexType>
+
+    <!-- Coach complex type using xs:all -->
+    <xs:complexType name="Coach">
+        <xs:all>
+            <xs:element name="name" type="fc:NonEmptyString"/>
+            <xs:element name="surname" type="fc:NonEmptyString"/>
+            <xs:element name="experience" type="fc:Experience"/>
+        </xs:all>
+        <xs:attribute name="id" type="fc:PositiveInteger"/>
+    </xs:complexType>
+
+    <!-- Date simple type -->
+    <xs:simpleType name="Date">
+        <xs:restriction base="xs:dateTime"/>
+    </xs:simpleType>
+
+    <!-- Price simple type -->
+    <xs:simpleType name="Price">
+        <xs:restriction base="fc:PositiveDecimal"/>
+    </xs:simpleType>
+
+    <!-- Experience simple type -->
+    <xs:simpleType name="Experience">
+        <xs:restriction base="fc:PositiveDecimal"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="ClientPrivilege">
+        <xs:restriction base="xs:string">
+            <!-- Define a list of accepted values -->
+            <xs:enumeration value="Basic"/>
+            <xs:enumeration value="Medium"/>
+            <xs:enumeration value="Elite"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- ID Integer simple type -->
+    <xs:simpleType name="idInteger">
+        <xs:restriction base="xs:int"/>
+    </xs:simpleType>
+
+</xs:schema>
