@@ -22,7 +22,7 @@ public class Main {
         System.out.println("1. Get client\n" +
                 "2. Get client by id\n" +
                 "3. Add client\n" +
-                "4. Update client\n" +1
+                "4. Update client\n" +
                 "5. Delete client\n" +
                 "7. Exit\n" +
                 "8. Send with invalid token\n" +
