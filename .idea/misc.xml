@@ -8,6 +8,8 @@
         <option value="$PROJECT_DIR$/Lab3/pom.xml" />
         <option value="$PROJECT_DIR$/ClientSimpleStandalone/pom.xml" />
         <option value="$PROJECT_DIR$/SOAP_Part/pom.xml" />
+        <option value="$PROJECT_DIR$/REST.ClientServiceOnTomcat/pom.xml" />
+        <option value="$PROJECT_DIR$/JAXRS.ClientStandalone/pom.xml" />
       </list>
     </option>
     <option name="workspaceImportForciblyTurnedOn" value="true" />

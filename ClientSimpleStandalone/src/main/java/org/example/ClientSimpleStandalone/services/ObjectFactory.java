@@ -319,8 +319,8 @@ public class ObjectFactory {
      * @return
      *     the new instance of {@link JAXBElement }{@code <}{@link ClientsList }{@code >}
      */
-    @XmlElementDecl(namespace = "http://it.nure.ua/social/service", name = "newPostsList")
-    public JAXBElement<ClientsList> createNewPostsList(ClientsList value) {
+    @XmlElementDecl(namespace = "https://it.nure.ua/sport/service", name = "ClientsList")
+    public JAXBElement<ClientsList> createClientsList(ClientsList value) {
         return new JAXBElement<ClientsList>(_ClientsList_QNAME, ClientsList.class, null, value);
     }
 
@@ -332,8 +332,8 @@ public class ObjectFactory {
      * @return
      *     the new instance of {@link JAXBElement }{@code <}{@link ClientsListResponse }{@code >}
      */
-    @XmlElementDecl(namespace = "http://it.nure.ua/social/service", name = "newPostsListResponse")
-    public JAXBElement<ClientsListResponse> createNewPostsListResponse(ClientsListResponse value) {
+    @XmlElementDecl(namespace = "https://it.nure.ua/sport/service", name = "ClientsListResponse")
+    public JAXBElement<ClientsListResponse> createClientsListResponse(ClientsListResponse value) {
         return new JAXBElement<ClientsListResponse>(_ClientsListResponse_QNAME, ClientsListResponse.class, null, value);
     }
 
