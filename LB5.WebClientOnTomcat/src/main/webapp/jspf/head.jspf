@@ -1,0 +1,5 @@
+<p>
+	<a href="list">List</a> | <a href="add.jsp">Add new</a>
+	| <a href="findtitle.jsp">Find by Title</a>
+</p>
+<hr />

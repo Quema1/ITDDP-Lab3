@@ -1,0 +1,59 @@
+@CHARSET "UTF-8";
+
+tr:HOVER {
+	background-color: #eeffff;
+}
+
+.brd {
+	border: thin solid black;
+	padding: 5px;
+	border-collapse: collapse;
+}
+
+.left {
+	text-align: left;
+}
+
+.right {
+	text-align: right;
+}
+
+.tabhead {
+	text-align: center;
+	font-weight: bold;
+	border-bottom: medium solid black;
+}
+
+.vertical-container {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	padding: 10px;
+	background-color: #f0f0f0;
+	border-left-style: solid;
+}
+
+.error-container {
+	background-color: #f0c3ca;
+	color: red;
+	border-left-style: solid;
+	border-left-color: red;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	padding: 10px;
+}
+
+.image-container {
+	overflow-x: auto;
+	white-space: nowrap;
+	display: flex;
+	gap: 10px;
+}
+
+.image {
+	object-fit: cover;
+	height: 50vh;
+	display: inline-block;
+	border-radius: 5px;
+}
